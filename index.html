@@ -232,25 +232,35 @@
   const rankSorter = document.getElementById('rankSorter');
   const searchInput = document.getElementById('advisorSearch');
 
-  function renderTable(sortKey) {
-    const sorted = [...maData].sort((a, b) => b[sortKey] - a[sortKey]);
-    tableBody.innerHTML = '';
+ function renderTable(sortKey) {
+  const sorted = [...maData].sort((a, b) => b[sortKey] - a[sortKey]);
+  tableBody.innerHTML = '';
 
-    sorted.forEach((bank, index) => {
-      tableBody.insertAdjacentHTML('beforeend', `
-        <tr>
-          <td class="rank-cell">#${index + 1}</td>
-          <td class="bank-name">${bank.name}</td>
-          <td class="value-bold">
-            <div>$${bank.val.toFixed(1)}B</div>
-            ${Array.isArray(bank.topDeals) && bank.topDeals.length > 0 ? <div><span class="top-deal-badge" title="${bank.topDeals.join(' | ')}">Top Deals</span></div> : ''}
-          </td>
-          <td>${bank.count}</td>
-        </tr>
-      `);
-    });
-    filterAdvisors();
-  }
+  sorted.forEach((bank, index) => {
+    tableBody.insertAdjacentHTML('beforeend', `
+      <tr>
+        <td class="rank-cell">#${index + 1}</td>
+        <td class="bank-name">${bank.name}</td>
+        <td class="value-bold">
+          <div>$${bank.val.toFixed(1)}B</div>
+          ${
+            Array.isArray(bank.topDeals) && bank.topDeals.length > 0
+              ? `<div>
+                   <span class="top-deal-badge"
+                         title="${bank.topDeals.join(' | ')}">
+                     Top Deals
+                   </span>
+                 </div>`
+              : ''
+          }
+        </td>
+        <td>${bank.count}</td>
+      </tr>
+    `);
+  });
+
+  filterAdvisors();
+}
 
   function filterAdvisors() {
     const filter = searchInput.value.toUpperCase();
@@ -269,4 +279,5 @@
 </script>
 
 </body>
+
 </html>
