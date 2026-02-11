@@ -1,173 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>India M&A League Table 2025</title>
-  <style>
-    :root {
-      --navy: #002B5B;
-      --slate: #4A5568;
-      --grey-bg: #F8FAFC;
-      --white: #FFFFFF;
-      --border: #E2E8F0;
-      --accent: #2B6CB0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>India M&A League Table 2025</title>
 
-    body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, sans-serif;
-      background-color: var(--grey-bg);
-      color: #1A202C;
-    }
+<style>
+:root {
+  --navy: #002B5B;
+  --slate: #4A5568;
+  --grey-bg: #F8FAFC;
+  --white: #FFFFFF;
+  --border: #E2E8F0;
+  --accent: #2B6CB0;
+}
 
-    .container {
-      max-width: 1040px;
-      margin: 60px auto;
-      padding: 0 24px;
-    }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--grey-bg);
+  color: #1A202C;
+}
 
-    .header-section {
-      margin-bottom: 48px;
-      border-left: 4px solid var(--navy);
-      padding-left: 24px;
-    }
+.container {
+  max-width: 1040px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
 
-    h1 {
-      font-size: 32px;
-      color: var(--navy);
-      margin: 0 0 16px 0;
-      font-weight: 800;
-    }
+.header-section {
+  margin-bottom: 48px;
+  border-left: 4px solid var(--navy);
+  padding-left: 24px;
+}
 
-    .description {
-      font-size: 16px;
-      color: var(--slate);
-      line-height: 1.6;
-      max-width: 850px;
-    }
+h1 {
+  font-size: 32px;
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  font-weight: 800;
+}
 
-    .controls-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      gap: 20px;
-    }
+.description {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.6;
+  max-width: 850px;
+}
 
-    .search-wrapper {
-      flex-grow: 1;
-      max-width: 400px;
-    }
+.table-card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
 
-    #advisorSearch {
-      width: 100%;
-      padding: 10px 16px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 14px;
-      outline: none;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    .sort-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+thead {
+  background-color: var(--navy);
+  color: var(--white);
+}
 
-    select {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      color: var(--navy);
-      cursor: pointer;
-      font-weight: 600;
-    }
+th {
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
-    .table-card {
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
+td {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+tbody tr:hover { 
+  background-color: #F1F5F9; 
+}
 
-    thead {
-      background-color: var(--navy);
-      color: var(--white);
-    }
+.rank-cell { 
+  font-weight: 800; 
+  color: var(--accent); 
+  width: 80px; 
+}
 
-    th {
-      padding: 18px 24px;
-      text-align: left;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
+.bank-name { 
+  font-weight: 700; 
+  color: #2D3748; 
+}
 
-    td {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border);
-      font-size: 14.5px;
-    }
+.value-bold { 
+  font-family: monospace; 
+  color: var(--navy); 
+  font-weight: 700; 
+}
 
-    tbody tr:hover { background-color: #F1F5F9; }
-
-    .rank-cell { font-weight: 800; color: var(--accent); width: 80px; }
-    .bank-name { font-weight: 700; color: #2D3748; }
-    .value-bold { font-family: monospace; color: var(--navy); font-weight: 700; }
-
-    .top-deal-badge {
-      background-color: #FEF3C7;
-      color: #92400E;
-      font-size: 9px;
-      font-weight: 900;
-      padding: 4px 8px;
-      border-radius: 999px;
-      margin-left: 8px;
-      vertical-align: middle;
-      cursor: help;
-      white-space: nowrap;
-    }
-
-    .view-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 13px; }
-
-    footer {
-      margin-top: 32px;
-      font-size: 12px;
-      color: #94A3B8;
-      font-style: italic;
-    }
-  </style>
+footer {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #94A3B8;
+  font-style: italic;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
   <div class="header-section">
     <h1>Tracxn M&A India League Table (CY 2025)</h1>
     <p class="description">
-      League tables rank investment banks based on the value and volume of transactions they have facilitated during a defined calendar period. This page highlights the M&A deals for leading investment banks in India for CY 2025, ordered by total deal value in USD, with flexibility to view rankings by number of deals completed.
+      League tables rank investment banks based on the value and volume of transactions they have facilitated during a defined calendar period.
     </p>
-  </div>
-
-  <div class="controls-container">
-    <div class="search-wrapper">
-      <input type="text" id="advisorSearch" placeholder="Search for financial advisor..." onkeyup="filterAdvisors()">
-    </div>
-    <div class="sort-wrapper">
-      <span style="font-size: 13px; font-weight:600; color: var(--slate)">Sort by:</span>
-      <select id="rankSorter">
-        <option value="val">Deal Value (USD)</option>
-        <option value="count">Number of Deals</option>
-      </select>
-    </div>
   </div>
 
   <div class="table-card">
@@ -190,95 +140,68 @@
 </div>
 
 <script>
-  const maData = [
-    { name: "Morgan Stanley", val: 14.67, count: 6, topDeals: ["Schneider Electric–SEIPL", "Iveco–Tata Motors"], link: "#" },
-    { name: "Kotak Investment Banking", val: 12.57, count: 10, topDeals: ["Kotak Deal 1", "Kotak Deal 2"], link: "#" },
-    { name: "KPMG", val: 7.93, count: 18, topDeals: ["KPMG Deal 1", "KPMG Deal 2"], link: "#" },
-    { name: "Ernst & Young (EY)", val: 7.0, count: 20, topDeals: ["ABC Corp–XYZ Ltd", "PQR Pvt Ltd–LMN Ltd"], link: "#" },
-    { name: "J.P. Morgan", val: 4.98, count: 3, topDeals: ["JP Deal 1", "JP Deal 2"], link: "#" },
-    { name: "Deloitte", val: 4.86, count: 10, topDeals: ["Deloitte Deal 1", "Deloitte Deal 2"], link: "#" },
-    { name: "PwC", val: 4.52, count: 10, topDeals: ["PwC Deal 1", "PwC Deal 2"], link: "#" },
-    { name: "Rothschild & Co", val: 3.78, count: 2, topDeals: ["Rothschild Deal 1"], link: "#" },
-    { name: "Standard Chartered", val: 3.43, count: 5, topDeals: ["SC Deal 1"], link: "#" },
-    { name: "NeoStrat Advisors", val: 3.00, count: 1, topDeals: ["NeoStrat Deal 1"], link: "#" },
-    { name: "Avendus Capital", val: 2.75, count: 12, topDeals: ["Avendus Deal 1", "Avendus Deal 2"], link: "#" },
-    { name: "Goldman Sachs", val: 2.68, count: 2, topDeals: ["Goldman Deal 1", "Goldman Deal 2"], link: "#" },
-    { name: "Grant Thornton Bharat", val: 2.51, count: 2, topDeals: ["Grant Deal 1"], link: "#" },
-    { name: "SBI Capital Markets Limited", val: 2.50, count: 1, topDeals: ["SBI Deal 1"], link: "#" },
-    { name: "NovaOne Capital", val: 2.28, count: 1, topDeals: ["NovaOne Deal 1"], link: "#" },
-    { name: "Allegro Capital", val: 1.60, count: 5, topDeals: ["Allegro Deal 1"], link: "#" },
-    { name: "Ambit Private Limited", val: 1.30, count: 5, topDeals: ["Ambit Deal 1", "Ambit Deal 2"], link: "#" },
-    { name: "JM Financial", val: 1.16, count: 5, topDeals: ["JM Deal 1"], link: "#" },
-    { name: "DC Advisory", val: 1.13, count: 6, topDeals: ["DC Deal 1", "DC Deal 2"], link: "#" },
-    { name: "Barclays", val: 0.75, count: 1, topDeals: ["Barclays Deal 1"], link: "#" },
-    { name: "Deutsche Bank", val: 0.65, count: 2, topDeals: ["Deutsche Deal 1"], link: "#" },
-    { name: "Investec", val: 0.55, count: 4, topDeals: ["Investec Deal 1", "Investec Deal 2"], link: "#" },
-    { name: "Singhi Advisors", val: 0.49, count: 8, topDeals: ["Singhi Deal 1", "Singhi Deal 2"], link: "#" },
-    { name: "Arpwood Capital", val: 0.49, count: 2, topDeals: ["Arpwood Deal 1"], link: "#" },
-    { name: "The Rainmaker Group", val: 0.35, count: 1, topDeals: ["Rainmaker Deal 1"], link: "#" },
-    { name: "Lodha Capital", val: 0.26, count: 5, topDeals: ["Lodha Deal 1"], link: "#" },
-    { name: "TH Global Capital", val: 0.23, count: 3, topDeals: ["TH Global Deal 1"], link: "#" },
-    { name: "o3 Capital", val: 0.22, count: 3, topDeals: ["o3 Deal 1"], link: "#" },
-    { name: "Daiwa Securities Co. Ltd.", val: 0.21, count: 1, topDeals: ["Daiwa Deal 1"], link: "#" },
-    { name: "Indium Capital Advisors", val: 0.20, count: 2, topDeals: ["Indium Deal 1"], link: "#" },
-    { name: "InCred Capital", val: 0.20, count: 2, topDeals: ["InCred Deal 1"], link: "#" },
-    { name: "Spark Capital", val: 0.15, count: 3, topDeals: ["Spark Deal 1"], link: "#" },
-    { name: "Aeka Advisors", val: 0.14, count: 6, topDeals: ["Aeka Deal 1", "Aeka Deal 2"], link: "#" },
-    { name: "RBSA Capital Advisors LLP", val: 0.13, count: 1, topDeals: ["RBSA Deal 1"], link: "#" },
-    { name: "Equirus Capital", val: 0.07, count: 1, topDeals: ["Equirus Deal 1"], link: "#" },
-  ];
+const maData = [
+  { name: "Morgan Stanley", val: 14.7, count: 6 },
+  { name: "Kotak Investment Banking", val: 12.6, count: 10 },
+  { name: "KPMG", val: 7.9, count: 18 },
+  { name: "EY", val: 7.0, count: 20 },
+  { name: "JP Morgan", val: 5.0, count: 3 },
+  { name: "Deloitte", val: 4.9, count: 10 },
+  { name: "PwC", val: 4.5, count: 10 },
+  { name: "Rothschild & Co", val: 3.8, count: 2 },
+  { name: "Standard Chartered", val: 3.4, count: 5 },
+  { name: "NeoStrat Advisors", val: 3.0, count: 1 },
+  { name: "Avendus Capital", val: 2.7, count: 12 },
+  { name: "Goldman Sachs", val: 2.7, count: 2 },
+  { name: "Grant Thornton Bharat", val: 2.5, count: 2 },
+  { name: "SBI Capital Markets Limited", val: 2.5, count: 1 },
+  { name: "NovaOne Capital", val: 2.3, count: 1 },
+  { name: "Allegro Capital", val: 1.6, count: 5 },
+  { name: "Ambit Private Limited", val: 1.3, count: 5 },
+  { name: "JM Financial", val: 1.2, count: 5 },
+  { name: "DC Advisory", val: 1.1, count: 6 },
+  { name: "Barclays", val: 0.7, count: 1 },
+  { name: "Deutsche Bank", val: 0.6, count: 2 },
+  { name: "Investec", val: 0.6, count: 4 },
+  { name: "Singhi Advisors", val: 0.5, count: 8 },
+  { name: "Arpwood Capital", val: 0.5, count: 2 },
+  { name: "TH Global Capital", val: 0.4, count: 9 },
+  { name: "The Rainmaker Group", val: 0.4, count: 1 },
+  { name: "Lodha Capital", val: 0.3, count: 5 },
+  { name: "o3 Capital", val: 0.2, count: 3 },
+  { name: "Daiwa Securities Co. Ltd.", val: 0.2, count: 1 },
+  { name: "Indium Capital Advisors", val: 0.2, count: 2 },
+  { name: "InCred Capital", val: 0.2, count: 2 },
+  { name: "Spark Capital", val: 0.2, count: 3 },
+  { name: "Aeka Advisors", val: 0.1, count: 6 },
+  { name: "RBSA Capital Advisors LLP", val: 0.1, count: 1 },
+  { name: "Equirus Capital", val: 0.1, count: 1 },
+  { name: "SPN Advisors LLP", val: 0.1, count: 1 },
+  { name: "Emerging India Value Advisory LLP (EIVA)", val: 0.1, count: 1 },
+  { name: "DAM Capital Advisors Ltd", val: 0.1, count: 1 },
+  { name: "Anand Rathi Investment Banking", val: 0.1, count: 1 },
+  { name: "VedaCorp", val: 0.0, count: 3 }
+];
 
-  const tableBody = document.getElementById('tableData');
-  const rankSorter = document.getElementById('rankSorter');
-  const searchInput = document.getElementById('advisorSearch');
+const tableBody = document.getElementById('tableData');
 
- function renderTable(sortKey) {
-  const sorted = [...maData].sort((a, b) => b[sortKey] - a[sortKey]);
+function renderTable() {
   tableBody.innerHTML = '';
 
-  sorted.forEach((bank, index) => {
+  maData.forEach((bank, index) => {
     tableBody.insertAdjacentHTML('beforeend', `
       <tr>
         <td class="rank-cell">#${index + 1}</td>
         <td class="bank-name">${bank.name}</td>
-        <td class="value-bold">
-          <div>$${bank.val.toFixed(1)}B</div>
-          ${
-            Array.isArray(bank.topDeals) && bank.topDeals.length > 0
-              ? `<div>
-                   <span class="top-deal-badge"
-                         title="${bank.topDeals.join(' | ')}">
-                     Top Deals
-                   </span>
-                 </div>`
-              : ''
-          }
-        </td>
+        <td class="value-bold">$${bank.val.toFixed(1)}B</td>
         <td>${bank.count}</td>
       </tr>
     `);
   });
-
-  filterAdvisors();
 }
 
-  function filterAdvisors() {
-    const filter = searchInput.value.toUpperCase();
-    const rows = tableBody.getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
-      const nameCell = rows[i].getElementsByTagName('td')[1];
-      if (nameCell) {
-        const textValue = nameCell.textContent || nameCell.innerText;
-        rows[i].style.display = textValue.toUpperCase().indexOf(filter) > -1 ? '' : 'none';
-      }
-    }
-  }
-
-  rankSorter.addEventListener('change', e => renderTable(e.target.value));
-  renderTable('val');
+renderTable();
 </script>
 
 </body>
-
 </html>
-
