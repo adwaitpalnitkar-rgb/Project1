@@ -192,7 +192,7 @@ function renderTable() {
       <tr>
         <td class="rank-cell">#${index + 1}</td>
         <td class="bank-name">${bank.name}</td>
-        <td class="value-bold">$${bank.val.toFixed(1)}B</td>
+        <td class="value-bold">$${bank.val.toFixed(0)}</td>
         <td>${bank.count}</td>
       </tr>
     `);
@@ -204,6 +204,7 @@ renderTable();
 
 </body>
 </html>
+
 
 
 
